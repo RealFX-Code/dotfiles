@@ -5,13 +5,13 @@
 ```
 For windows users (in powershell):
 
-# Download and install Scoop
+# Download and install Scoop via this one liner
 $ iwr -useb get.scoop.sh | iex
 
-# Install git
+# Install git and it's dependencies
 $ scoop install git
 
-# Clone git repo and enter the folder
+# Clone the github repo and enter the repo's folder
 $ git clone https://github.com/RealFX-code/dotfiles
 $ cd dotfiles
 
