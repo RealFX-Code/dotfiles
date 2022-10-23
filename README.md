@@ -19,4 +19,11 @@ $ cd dotfiles
 $ & ./windows/install.ps1
 ```
 
+```
+For linux users (in bash:
+
+# Install dotfiles using one-liner
+$ curl -sS https://get.realfx.rocks/linux/dotfiles.sh | bash
+```
+
 RealFX (C) 2022
