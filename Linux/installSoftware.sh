@@ -2,6 +2,8 @@
 
 sudo apt install zsh wofi rofi i3 python3-pip curl wget
 
+chsh /usr/bin/zsh
+
 curl -sS https://starship.rs/install.sh | sh
 
 pip install wheel hyfetch
