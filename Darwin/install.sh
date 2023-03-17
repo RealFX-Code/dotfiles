@@ -1,1 +1,5 @@
-echo "lol"
+#! /bin/bash
+
+cp -r ./.config ~
+
+cp ./.zshrc ~
