@@ -2,28 +2,23 @@
 
 ### Well, How do I?
 
-```
-For windows users (in powershell):
+Simply clone the repo and run the "install" script in the directory of whatever OS you're running.
 
-# Download and install Scoop via this one liner
-$ iwr -useb get.scoop.sh | iex
+```bash
+$ git clone https://github.com/RealFX-Code/dotfiles.git
 
-# Install git and it's dependencies
-$ scoop install git
+# Check if you're running linux if you're unsure
+$ uname -s
+Linux
 
-# Clone the github repo and enter the repo's folder
-$ git clone https://github.com/RealFX-code/dotfiles
-$ cd dotfiles
+$ cd dotfiles/linux
 
-# run Script to install everything (may prompt for admin rights. It's not neccesary, but reccomended.)
-$ & ./windows/install.ps1
-```
+$ chmod +x ./install*
 
-```
-For linux users (in bash):
+$ ./install.sh
 
-# Install dotfiles using one-liner
-$ curl -sS https://get.realfx.rocks/linux/dotfiles.sh | bash
+# OPTIONAL:
+$ ./installSoftware.sh
 ```
 
 RealFX (C) 2022
