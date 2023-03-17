@@ -4,14 +4,11 @@
 
 Simply clone the repo and run the "install" script in the directory of whatever OS you're running.
 
+If you're on MacOS or Linux:
 ```bash
 $ git clone https://github.com/RealFX-Code/dotfiles.git
 
-# Check if you're running linux if you're unsure
-$ uname -s
-Linux
-
-$ cd dotfiles/linux
+$ cd dotfiles/$(uname -s)
 
 $ chmod +x ./install*
 
