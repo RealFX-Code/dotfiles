@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 
-sudo apt install zsh wofi rofi i3 python3-pip curl wget
+sudo apt install zsh wofi rofi i3 python3-pip curl wget exa neovim
 
 chsh /usr/bin/zsh
 
