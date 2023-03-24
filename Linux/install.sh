@@ -2,6 +2,8 @@
 
 cp -R ./.config ~/
 
+cp -r ./Pictures ~/
+
 mkdir -p ~/div
 mkdir -p ~/div/coding
 mkdir -p ~/div/repos
