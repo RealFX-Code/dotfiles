@@ -244,7 +244,7 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
 # file browser
-bindsym $mod+e exec "nautilus"
+bindsym $mod+e exec "thunar"
 
 # i3-colors
 client.focused          #000000 #A86CFF #FFFFFF #F49AD4   #FE9FFF
