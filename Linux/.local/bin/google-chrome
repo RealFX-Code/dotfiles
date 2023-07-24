@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
 
+# Enable this flag bcs an update broke chrome with AMD drivers.
 google-chrome-stable --disable-gpu-driver-bug-workarounds
