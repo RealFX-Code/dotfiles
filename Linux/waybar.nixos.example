@@ -1,0 +1,14 @@
+# Experimental support for Hyprland with Waybar
+programs.waybar = {
+  enable = true;
+  package = pkgs.waybar.overrideAttrs(old: {
+    mesonFlags = (old.mesonFlags or []) ++ [ "-Dexperimental=true" ];
+    patches = (old.patches or []) ++ [
+      (pkgs.fetchpatch {
+        name = "fix waybar hyprctl";
+        url = "https://aur.archlinux.org/cgit/aur.git/plain/hyprctl.patch?h=waybar-hyprland-git";
+        sha256 = "sha256-pY3+9Dhi61Jo2cPnBdmn3NUTSA8bAbtgsk2ooj4y7aQ=";
+      })
+    ];
+  });
+};
