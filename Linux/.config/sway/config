@@ -26,7 +26,7 @@ include /etc/sway/config-vars.d/*
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /home/realfx/Pictures/Wallpapers/final-dark.png fill
+output * bg /home/leah/Pictures/Wallpapers/blender.png fill
 #
 # Example configuration:
 #
@@ -285,35 +285,22 @@ input type:keyboard {
 
 }
 
-# Display(s) at dad's house
+# output "Dell Inc. DELL U2412M YPPY077L114S" {
+#     mode 1920x1200@60Hz
+#     position 3840,0
+# }
 
-# Primary display, 1440p@144Hz
-output "Lenovo Group Limited LEN G32qc-10 UGW0589T" {
-    mode 2560x1440@144Hz
+output HDMI-A-1 {
+    mode 1920x1080@60Hz
     position 0,0
 }
 
-# Secondary display, 1200p@60Hz
-output "Dell Inc. DELL U2412M YPPY078352XU" {
-    mode 1920x1200@60Hz
-    position 2560,0
-}
-
-# Display(s) at mom's house
-
-# Primary Display, 1080p@240Hz
-output "AOC 27G2G8 PJDL9JA002012" {
+output DP-1 {
     mode 1920x1080@240Hz
     position 1920,0
 }
 
-output eDP-1 {
-    disable
-    position 0,0
-    mode 1920x1080@144Hz
-}
-
-output "Dell Inc. DELL U2412M YPPY077L114S" {
+output DP-3 {
     mode 1920x1200@60Hz
     position 3840,0
 }
@@ -330,4 +317,4 @@ xwayland enable
 
 include /etc/sway/config.d/*
 
-include /home/realfx/.config/sway/conf.d/*
+include /home/leah/.config/sway/conf.d/*

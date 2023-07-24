@@ -21,5 +21,3 @@ alias l="ls"
 alias ls="exa -algha"
 alias lt="tree"
 
-# wayland alias :D
-alias code="code-insiders --ozone-platform-hint=auto"
