@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+sudo pacman -Syyuu
+paru -Syu
+pipx upgrade-all
