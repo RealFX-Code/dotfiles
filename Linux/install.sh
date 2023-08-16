@@ -12,9 +12,13 @@ mkdir -p ~/.local
 mkdir -p ~/.local/bin
 
 cp ./.local/bin/* ~/.local/bin/
+chmod +x ̃~/.local/bin/*
 
 cp ./.zshrc ~/.zshrc
 
 cp ./.profile ~/.profile
+
+cp ./.xinitrc ~/.xinitrc
+chmod +x ̃~/.xinitrc
 
 echo -e "Dotfiles installed."
