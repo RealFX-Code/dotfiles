@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
 
-sudo pacman -Syyuu
-paru -Syu
+sudo xbps-install -Suy
 pipx upgrade-all

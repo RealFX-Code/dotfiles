@@ -1,150 +1,143 @@
-@import "macchiato.css";
-
-@define-color critical @red; /* critical color */
-@define-color warning @maroon;  /* warning color */
-@define-color fgcolor @text;  /* foreground color */
-@define-color bgcolor @base;  /* background color */
-@define-color alert   @overlay1;
-
-@define-color accent1 @pink;
-@define-color accent2 @yellow;
-@define-color accent3 @green;
-@define-color accent4 @mauve;
-@define-color accent5 @rosewater;
-@define-color accent6 @blue;
-
 * {
-    /* `otf-font-awesome` is required to be installed for icons */
     border: none;
-    font-family: "JetBrains Mono NerdFont";
-    /* Recommended font sizes: 720p: ~14px, 1080p: ~18px */
-    font-size: 14px;
+    border-radius: 0;
+    font-family: "JetBrainsMono NerdFont";
+    min-height: 0;
 }
 
-window#waybar {
-
-    background-color: rgba(0, 0, 0, 0.0);
-    /* border-bottom: 0px solid rgba(100, 114, 125, 0.5); */
-    color: @base;
-    transition-property: background-color;
-    transition-duration: .5s;
-    border-radius: 4px;
-}
-
-window#waybar.hidden {
-    opacity: 0.2;
+#waybar {
+    background-color: rgba(50, 48, 47, 0.8);
 }
 
 #workspaces button {
-    padding: 0px;
-    margin: 4px 0 6px 0;
-    background-color: @base;
-    color: @text;
-    min-width: 36px;
-    transition: all 0.25s ease;
+    color: #e2cca9;
+    background-color: #32302f;
+    font-size: 13px;
 }
 
-#workspaces button.active {
-    padding: 0 0 0 0;
-    margin: 4px 0 6px 0;
-    background-color: @text;
-    color: @base;
-    min-width: 36px;
+#workspaces button:hover,
+#workspaces button.focused:hover,
+#workspaces button.visible:hover {
+    color: #32302f;
+    background-color: #d3869b;
 }
 
 #workspaces button.focused {
-    background-color: @text;
-    color: @base;
+    background-color: #3c3836;
+    box-shadow: inset 0 -3px #d3869b;
 }
 
 #workspaces button.urgent {
-    color: @red;
+    color: #32302f;
+    background-color: #f2594b;
 }
 
-#clock,
-#battery,
-#cpu,
-#memory,
-#temperature,
-#backlight,
+#workspaces button.visible {
+    background-color: #3c3836;
+}
+
+/*
+ * Arrows
+ */
+#custom-arrow-light-on-bg-left {
+    font-size: 15px;
+    color: #3c3836;
+    background-color: transparent;
+}
+
+#custom-arrow-dark-on-bg-right {
+    font-size: 15px;
+    color: #32302f;
+    background-color: transparent;
+   
+}
+
+#custom-arrow-light-on-dark-left,
+#custom-arrow-light-on-dark-right {
+    font-size: 15px;
+    color: #3c3836;
+    background: #32302f;
+}
+
+#custom-arrow-dark-on-light-left,
+#custom-arrow-dark-on-light-right {
+    font-size: 15px;
+    color: #32302f;
+    background: #3c3836;
+}
+
+/*
+ * General background
+ */
 #network,
-#pulseaudio,
-#custom-media,
-#tray,
-#mode,
-#idle_inhibitor,
-#custom-power,
-#custom-pacman,
+#memory,
+#backlight,
 #language,
-#window {
-    padding: 0px 3px;
-    margin: 4px 3px 5px 3px;
-    color: @fgcolor;
-    background-color: @base;
-    padding: 0px 8px;
-    border-radius: 4px;
-}
-
-/* #window, */
-#workspaces {
-    margin: 0 4px;
-}
-
-/* If workspaces is the leftmost module, omit left margin
-.modules-left > widget:first-child > #workspaces {
-    margin-left: 0;
-}
-
-If workspaces is the rightmost module, omit right margin
-.modules-right > widget:last-child > #workspaces {
-    margin-right: 0;
-}
-
-*/
+#custom-weather,
 #clock {
-    color: @accent1;
+    color: #e2cca9;
+    font-size: 13px;
+    background-color: #32302f;
+    padding: 0 8 0 8;
 }
 
-#battery {
-    color: @accent5;
+#cpu,
+#pulseaudio,
+#temperature,
+#battery,
+#tray,
+#custom-crypto {
+    color: #e2cca9;
+    font-size: 13px;
+    background-color: #3c3836;
+    padding: 0 8 0 8;
 }
 
-@keyframes blink {
-    to {
-        background-color: @text;
-        color: @base;
-    }
+/*
+ * Warning plugins state
+ */
+#memory.warning,
+#cpu.warning,
+#battery.warning {
+    color: #e9b143;
 }
 
-label:focus {
-    background-color: #000000;
-}
-
-#cpu {
-    color: @accent1;
-}
-
-#memory {
-    color: @accent6;
-}
-
-#network {
-    color: @accent3;
-}
-
+/*
+ * Critical plugins state
+ */
+#cpu.critical,
+#temperature.critical,
+#memory.critical,
+#battery.critical,
 #network.disconnected {
-    color: @alert;
+    color: #f2594b;
 }
 
-#pulseaudio {
-    color: @accent4;
+#mode {
+    color: #32302f;
+    font-size: 13px;
+    background-color: #f2594b;
 }
 
-#pulseaudio.muted {
-    color: @subtext0;
+#clock {
+    color: #e2cca9;
+    font-size: 13px;
 }
 
-#tray {
-
+#battery.charging {
+    color: #b0b846;
 }
 
+#battery.plugged {
+    color: #80aa9e;
+}
+
+#pulseaudio.bluetooth {
+    color: #80aa9e;
+}
+
+tooltip {
+    color: #e2cca9;
+    font-size: 13px;
+    background-color: #32302f;
+}

@@ -1,16 +1,16 @@
 window {
-  font-family: "DejaVu Sans", "Font Awesome 5 Free";
+  font-family: "JetBrainsMono NerdFont", "DejaVu Sans", "Font Awesome 5 Free";
   margin: 0px;
-  border: 1px solid rgba(0, 0, 0, 0.9);
-  background-color: rgba(29, 31, 33, 0.95);
+  border: 1px solid #b16286;
+  background-color: #282828;
   border-radius: 10px;
 }
 
 #input {
   margin: 5px;
   border: none;
-  color: #f8f8f2;
-  background-color: rgba(55, 59, 65, 0.95);
+  color: #ebdbb2;
+  background-color: #282828;
 }
 
 #inner-box {
@@ -33,10 +33,11 @@ window {
 #text {
   margin: 5px;
   border: none;
-  color: #c5c8c6;
+  color: #ebdbb2;
 }
 
 #entry {
+  
   border: none;
 }
 
@@ -45,7 +46,7 @@ window {
 }
 
 #entry:selected {
-  background-color: rgba(55, 59, 65, 0.95);
+  background-color: #282828;
   border-radius: 5px;
   border: none;
 }

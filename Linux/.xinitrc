@@ -25,15 +25,16 @@ fi
 
 # main dwm stuffs
 
-export XCURSOR_SIZE = 16
-
 echo -e "[!!] Starting DWM."
+
+source ~/.profile
 
 source ~/.screenlayout/mom.sh&
 feh --bg-fill ~/Pictures/Wallpapers/pink-flowers.jpeg&
 slstatus&
+# source ~/div/software/lean-conky-config/start.sh&
 
 while true;
 do
-	dwm
+	dbus-run-session dwm
 done

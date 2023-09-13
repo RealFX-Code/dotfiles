@@ -26,7 +26,7 @@ include /etc/sway/config-vars.d/*
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /home/leah/Pictures/Wallpapers/blender.png fill
+output * bg /home/leah/Pictures/Wallpapers/pink-flowers.jpeg fill
 #
 # Example configuration:
 #
@@ -218,19 +218,11 @@ bindsym $mod+r mode "resize"
 # }
 
 bar {
-
     swaybar_command waybar
-
 }
 
-# Startup stuffs with 'dex'
-exec --no-startup-id dex --autostart --environment i3
-
 # set font
-font pango:monospace 8
-
-# tray stuffs
-exec --no-startup-id nm-applet
+font pango:JetBrainsMono NerdFont 8
 
 # Use pactl to adjust volume in PulseAudio.
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
@@ -244,38 +236,32 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
 # file browser
-bindsym $mod+e exec "thunar"
+bindsym $mod+e exec "nautilus"
 
-# i3-colors
-client.focused          #000000 #A86CFF #FFFFFF #F49AD4   #FE9FFF
-client.focused_inactive #333333 #515151 #FFFFFF #484E50   #5F676A
-client.unfocused        #333333 #222222 #888888 #292D2E   #222222
-client.urgent           #2F343A #823B3B #FFFFFF #900000   #900000
-client.placeholder      #000000 #0C0C0C #FFFFFF #000000   #0C0C0C
+# Color binds
+set $col_focused          #d3869b
+set $col_focused_inactive #b16286
+set $col_unfocused        #282828
+set $col_text_dark        #282828
+set $col_text_light       #ebdbb2
+set $col_urgent           #cc241d
+set $col_unfocused_border #282828
 
-client.background       #FFFFFF
+# class                  border                 background             text             indicator              child_border
+client.focused           $col_focused           $col_focused           $col_text_dark   $col_focused           $col_focused
+client.focused_inactive  $col_focused_inactive  $col_focused_inactive  $col_text_dark   $col_focused_inactive  $col_focused_inactive
+client.unfocused         $col_unfocused_border  $col_unfocused         $col_text_light  $col_unfocused         $col_unfocused
+client.urgent            $col_text_dark         $col_urgent            $col_text_dark   $col_urgent            $col_urgent
+
+default_border pixel
+
+# Gaps
+gaps outer 0
+gaps inner 8
 
 # Screenshot
 
-bindsym $mod+Shift+s exec grim -g "$(slurp)" - | wl-copy
-
-# Shutdown dialog
-
-set $mode_system System (e) logout, (s) suspend, (h) hibernate, (r) reboot, (CTRL+s) shutdown
-
-mode "$mode_system" {
-    bindsym e exec --no-startup-id swaymsg exit, mode "default"
-    bindsym s exec --no-startup-id systemctl suspend, mode "default"
-    bindsym h exec --no-startup-id systemctl hibernate, mode "default"
-    bindsym r exec --no-startup-id systemctl reboot, mode "default"
-    bindsym Ctrl+s exec --no-startup-id systemctl poweroff -i, mode "default"
-
-    # back to normal: Enter or Escape
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-
-bindsym $mod+BackSpace mode "$mode_system"
+bindsym $mod+Shift+s exec grim -g "$(slurp)" - | tee ~/Pictures/Screenshots/$(date +%d-%m-%Y-%H-%M).png
 
 # Keyboard Layout
 
@@ -290,19 +276,14 @@ input type:keyboard {
 #     position 3840,0
 # }
 
-output HDMI-A-1 {
-    mode 1920x1080@60Hz
+output DP-2 {
+    mode 1920x1200@60Hz
     position 0,0
 }
 
 output DP-1 {
     mode 1920x1080@240Hz
-    position 1920,0
-}
-
-output DP-3 {
-    mode 1920x1200@60Hz
-    position 3840,0
+    position 1920,120
 }
 
 # Mouse settings

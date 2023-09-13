@@ -1,13 +1,32 @@
 {
     "layer": "top", // Waybar at top layer
     "position": "top", // Waybar position (top|bottom|left|right)
-    "height": 34, // Waybar height (to be removed for auto height)
+    "height": 10,
     // "width": 1280, // Waybar width
-    "spacing": 8, // Gaps between modules (4px)
+    "spacing": 0, // Gaps between modules (4px)
     // Choose the order of the modules
-    "modules-left": ["wlr/workspaces"],
-    "modules-center": ["hyprland/window"],
-    "modules-right": ["pulseaudio", "network", "cpu", "memory", "clock", "tray"],
+    "modules-left": [
+        "sway/workspaces",
+        "sway/mode"
+    ],
+    "modules-center": [
+        "sway/window"
+    ],
+    "modules-right": [
+        "custom/arrow-light-on-bg-left", "pulseaudio",
+        "custom/arrow-dark-on-light-left", "network",
+        "custom/arrow-light-on-dark-left", "cpu",
+        "custom/arrow-dark-on-light-left", "memory",
+        "custom/arrow-light-on-dark-left", "tray",
+        "custom/arrow-dark-on-light-left", "clock",
+        "custom/arrow-bg-on-dark-left", "custom/padding"
+    ],
+    "sway/window": {
+        "format": "{}"
+    },
+    "sway/workspaces": {
+        "disable-scroll": true
+    },
     "wlr/workspaces": {
         "format": "{icon}",
         "on-click": "activate",
@@ -29,16 +48,16 @@
         "format-alt": "{:%Y-%m-%d}"
     },
     "cpu": {
-        "format": "{usage}% ",
+        "format": "cpu: {usage}%",
         "tooltip": false
     },
     "memory": {
-        "format": "{}% "
+        "format": "mem: {}%"
     },
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
         "format-wifi": "{essid} ({signalStrength}%) ",
-        "format-ethernet": "{ipaddr}/{cidr} ",
+        "format-ethernet": "{ifname}: {ipaddr}/{cidr}",
         "tooltip-format": "{ifname} via {gwaddr} ",
         "format-linked": "{ifname} (No IP) ",
         "format-disconnected": "Disconnected ⚠",
@@ -46,11 +65,11 @@
     },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
-        "format": "{volume}% {icon} {format_source}",
+        "format": "vol: {volume}% {format_source}",
         "format-bluetooth": "{volume}% {icon} {format_source}",
         "format-bluetooth-muted": " {icon} {format_source}",
         "format-muted": " {format_source}",
-        "format-source": "{volume}% ",
+        "format-source": "mic: {volume}%",
         "format-source-muted": "",
         "format-icons": {
             "headphone": "",
@@ -62,6 +81,39 @@
             "default": ["", "", ""]
         },
         "on-click": "pavucontrol"
+    },
+    "custom/arrow-light-on-bg-left": {
+        "tooltip": false,
+        "format": ""
+    },
+
+    "custom/arrow-dark-on-light-left": {
+        "tooltip": false,
+        "format": ""
+    },
+
+    "custom/arrow-light-on-dark-left": {
+        "tooltip": false,
+        "format": ""
+    },
+
+    "custom/arrow-dark-on-bg-right": {
+        "tooltip": false,
+        "format": ""
+    },
+
+    "custom/arrow-dark-on-light-right": {
+        "tooltip": false,
+        "format": ""
+    },
+
+    "custom/arrow-light-on-dark-right": {
+        "tooltip": false,
+        "format": ""
+    },
+    
+    "custom/padding": {
+        "format": "   "
     }
 }
 
