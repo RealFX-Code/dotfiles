@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+
+# Paru
+git clone https://aur.archlinux.org/paru.git
+cd paru
+makepkg -si
+
+# Pacman packages
+
+sudo pacman -S hyprland wofi waybar kitty
+

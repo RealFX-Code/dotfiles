@@ -1,0 +1,53 @@
+{
+    "layer": "top", // Waybar at top layer
+    "position": "top", // Waybar position (top|bottom|left|right)
+//    "height": 16,
+    // "width": 1280, // Waybar width
+    // Choose the order of the modules
+    "modules-left": ["hyprland/workspaces","custom/music"],
+    "modules-center": ["hyprland/window"],
+    "modules-right": ["pulseaudio", "cpu", "memory", "clock", "tray"],
+    /* "hyprland/workspaces": {
+         "disable-scroll": true,
+         "sort-by-name": true,
+         "format": " {icon} ",
+         "format-icons": {
+             "default": ""
+         }
+    },*/
+    "memory": {
+    "interval": 30,
+    "format": "\uee02 {used:0.1f}G/{total:0.1f}G"
+	},
+    "cpu": {
+	"interval":0.5,
+	"format":"\uf4bc {}%"
+    },
+    "tray": {
+        "icon-size": 21,
+        "spacing": 10
+    },
+    "custom/music": {
+        "format": "  {}",
+        "escape": true,
+        "interval": 5,
+        "tooltip": false,
+        "exec": "playerctl metadata --format='{{ title }}'",
+        "on-click": "playerctl play-pause",
+        "max-length": 50
+    },
+    "clock": {
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format-alt": "\uf073 {:%d/%m/%Y}",
+        "format": "\udb85\udc41 {:%H:%M}"
+    },
+    "pulseaudio": {
+        // "scroll-step": 1, // %, can be a float
+        "format": "{icon} {volume}%",
+        "format-muted": "",
+        "format-icons": {
+            "default": ["", "", " "]
+        },
+        "on-click": "pavucontrol"
+    }
+}
