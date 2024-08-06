@@ -1,0 +1,105 @@
+.vertical_bar {
+    @include widget;
+    min-height: 1060px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin: 10px;
+    background-color: $base;
+    color: $text;
+}
+
+.clock {
+    @include widget;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    min-height: 50px;
+    margin-top: 10px;
+    background-color: $surface;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.batbox {
+    @include widget;
+    padding-left: 18px;
+    padding-right: 18px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    min-width: 18px;
+    background-color: $surface;
+}
+
+.workspaces {
+    @include widget;
+    padding-left: 18px;
+    padding-right: 18px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-bottom: 10px;
+    border-radius: $rounding;
+    background-color: $surface;
+    color: $text;
+    font-size: 16px;
+    min-height: 150px;
+}
+.workspaces_unfocused {
+    @include common;
+    background-color: $overlay;
+    margin-top: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: $rounding;
+    &:hover {
+        background-color: $base;
+        transition: ease-in 0.1s;
+    }
+}
+.workspaces_focused {
+    background-color: $rose;
+    color: $base;
+    margin-top: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: $rounding;
+    transition: ease-in 0.1s;
+}
+
+.empty{
+  .workspaces_unfocused {
+    background-color: $base;
+  }
+}
+
+.misc_icon {
+    background-color: transparent;
+    color: $text;
+    font-size: 20px;
+}
+.misc_button {
+    @include button;
+    margin-top: 10px;
+    padding: 12px;
+    background-color: $base;    
+    &:hover {
+        background-color: $overlay;
+        transition: ease-in 0.3s;
+    }
+}
+
+.play-pause-container {
+  @include widget;
+  @include button;
+  min-height: 50px;
+  margin-top: 10px;
+  background-color: $surface;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 12px;
+  background-color: $base;    
+  &:hover {
+      background-color: $overlay;
+      transition: ease-in 0.3s;
+  }
+}

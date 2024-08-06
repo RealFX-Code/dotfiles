@@ -1,0 +1,577 @@
+$rounding: 15px;
+
+
+$background: #11131a;
+
+$error: #ffb4ab;
+
+$error_container: #93000a;
+
+$inverse_on_surface: #2f3038;
+
+$inverse_primary: #3e692e;
+
+$inverse_surface: #e2e1ec;
+
+$on_background: #e2e1ec;
+
+$on_error: #690005;
+
+$on_error_container: #ffdad6;
+
+$on_primary: #103803;
+
+$on_primary_container: #bff0a6;
+
+$on_primary_fixed: #052100;
+
+$on_primary_fixed_variant: #275018;
+
+$on_secondary: #482537;
+
+$on_secondary_container: #ffd8e8;
+
+$on_secondary_fixed: #2f1122;
+
+$on_secondary_fixed_variant: #613b4e;
+
+$on_surface: #e2e1ec;
+
+$on_surface_variant: #c4c5d6;
+
+$on_tertiary: #212e5a;
+
+$on_tertiary_container: #dce1ff;
+
+$on_tertiary_fixed: #0a1844;
+
+$on_tertiary_fixed_variant: #384472;
+
+$outline: #8e909f;
+
+$outline_variant: #444654;
+
+$primary: #a3d48c;
+
+$primary_container: #275018;
+
+$primary_fixed: #bff0a6;
+
+$primary_fixed_dim: #a3d48c;
+
+$scrim: #000000;
+
+$secondary: #ebb8cf;
+
+$secondary_container: #ebb8cf;
+
+$secondary_fixed: #ffd8e8;
+
+$secondary_fixed_dim: #ebb8cf;
+
+$shadow: #000000;
+
+$source_color: #246fc2;
+
+$surface: #11131a;
+
+$surface_bright: #373941;
+
+$surface_container: #1e1f27;
+
+$surface_container_high: #282a31;
+
+$surface_container_highest: #33343c;
+
+$surface_container_low: #1a1b23;
+
+$surface_container_lowest: #0c0e15;
+
+$surface_dim: #11131a;
+
+$surface_variant: #444654;
+
+$tertiary: #b8c4fa;
+
+$tertiary_container: #384472;
+
+$tertiary_fixed: #dce1ff;
+
+$tertiary_fixed_dim: #b8c4fa;
+
+*:not(switch) {
+    all: unset;
+}
+
+.vertical_bar {
+    border-radius: 15px;
+    min-height: 1060px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-left: 10px;
+    background-color: #11131a;
+    color: #e2e1ec;
+}
+
+.vertical_bar * {
+    font-family: Jetbrains Mono, sans-serif;
+}
+
+.power_icon {
+    background-color: transparent;
+    color: #103803;
+    font-size: 35px;
+}
+
+.power_button {
+    border-radius: 15px;
+    padding: 5px;
+    margin-top: 10px;
+    background-color: #a3d48c;
+}
+
+.power_button * {
+    font-family: Jetbrains Mono, sans-serif;
+}
+
+.power_button:hover {
+    background-color: #bff0a6;
+}
+
+.clock {
+    border-radius: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    min-height: 50px;
+    margin-top: 10px;
+    background-color: #1e1f27;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.clock * {
+    font-family: Jetbrains Mono, sans-serif;
+}
+
+.batbox {
+    border-radius: 15px;
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    min-height: 60px;
+    margin-top: 10px;
+    background-color: #1e1f27;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.batbox * {
+    font-family: Jetbrains Mono, sans-serif;
+}
+
+.batbar trough {
+    margin-top: 10px;
+    min-width: 10px;
+    min-height: 1px;
+}
+
+.batbar trough block {
+    border-radius: 15px;
+}
+
+.batbar trough block.empty {
+    background-color: #33343c;
+}
+
+.batbar trough block.full {
+    background-color: #ffb4ab;
+}
+
+.batbar-charging trough {
+    margin-top: 10px;
+    min-width: 10px;
+    min-height: 1px;
+}
+
+.batbar-charging trough block {
+    border-radius: 15px;
+}
+
+.batbar-charging trough block.empty {
+    background-color: #33343c;
+}
+
+.batbar-charging trough block.full {
+    background-color: #a3d48c;
+}
+
+.battery_icon {
+    margin-top: 5px;
+    background-color: transparent;
+    color: #e2e1ec;
+    font-size: 20px;
+}
+
+.workspaces {
+    border-radius: 15px;
+    padding-left: 18px;
+    padding-right: 18px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-radius: 15px;
+    background-color: #1e1f27;
+    min-height: 150px;
+}
+
+.workspaces * {
+    color: #000;
+    font-family: Jetbrains Mono, sans-serif;
+}
+
+.workspaces_unfocused {
+    background-color: #e2e1ec;
+    color: #000;
+    margin-top: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 15px;
+}
+
+.workspaces_unfocused * {
+    color: #000;
+    font-family: Jetbrains Mono, sans-serif;
+}
+
+.workspaces_unfocused:hover {
+    color: #000;
+    background-color: #a3d48c;
+    transition: ease-in 0.1s;
+}
+
+.workspaces_focused {
+    color: #000;
+    background-color: #a3d48c;
+    margin-top: 10px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 15px;
+    transition: ease-in 0.1s;
+}
+
+.notification_icon {
+    background-color: transparent;
+    color: #212e5a;
+    font-size: 20px;
+}
+
+.notification_button {
+    border-radius: 15px;
+    padding: 5px;
+    margin-top: 10px;
+    padding: 12px;
+    background-color: #b8c4fa;
+}
+
+.notification_button * {
+    font-family: Jetbrains Mono, sans-serif;
+}
+
+.notification_button:hover {
+    background-color: #dce1ff;
+    transition: ease-in 0.3s;
+}
+
+.misc_icon {
+    background-color: transparent;
+    color: #482537;
+    font-size: 20px;
+}
+
+.misc_button {
+    border-radius: 15px;
+    padding: 5px;
+    margin-top: 10px;
+    padding: 12px;
+    background-color: #ebb8cf;
+}
+
+.misc_button * {
+    font-family: Jetbrains Mono, sans-serif;
+}
+
+.misc_button:hover {
+    background-color: #ffd8e8;
+    transition: ease-in 0.3s;
+}
+
+.controls_icon {
+    background-color: transparent;
+    color: #103803;
+    font-size: 20px;
+}
+
+.controls_button {
+    border-radius: 15px;
+    padding: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 12px;
+    background-color: #a3d48c;
+}
+
+.controls_button * {
+    font-family: Jetbrains Mono, sans-serif;
+}
+
+.controls_button:hover {
+    background-color: #bff0a6;
+    transition: ease-in 0.3s;
+}
+
+
+*:not(switch) {
+    all: unset;
+}
+
+@mixin common{
+    * {
+        font-family: Jetbrains Mono, sans-serif;
+    }
+}
+
+@mixin widget{
+    @include common;
+    border-radius: $rounding;
+}
+
+@mixin button {
+    @include common;
+    border-radius: $rounding;
+    padding: 5px;
+}
+
+@mixin dock($spacing: $spacing * 0.7) {
+    separator {
+        border-radius: $radii;
+        background-color: transparentize($fg-color, 0.8);
+        margin: 0 $spacing;
+        min-width: 2px;
+        min-height: 2em;
+    }
+
+    button {
+        @include accs-button($flat: true);
+
+        .box {
+            margin: $spacing / 2;
+        }
+
+        image {
+            margin: $padding;
+
+            @if $color-scheme == 'light' {
+                -gtk-icon-shadow: $text-shadow;
+            }
+        }
+
+        .indicator {
+            min-width: 8px;
+            min-height: 8px;
+            background-color: $fg-color;
+            border-radius: $radii;
+            margin-bottom: $padding/2;
+
+            &.focused {
+                background-image: $active-gradient;
+            }
+        }
+    }
+}
+
+window.floating-dock .dock {
+    @include dock;
+    @include floating-widget;
+    border-radius: if($radii == 0, 0, $radii + $spacing / 2);
+    padding: $spacing / 2;
+}
+
+.vertical_bar {
+    @include widget;
+    min-height: 1060px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-left: 10px;
+    background-color: $background;
+    color: $on_background;
+}
+
+.power_icon {
+    background-color: transparent;
+    color: $on_primary;
+    font-size: 35px;
+}
+.power_button {
+    @include button;
+    margin-top: 10px;
+    background-color: $primary;    
+    &:hover {
+        background-color: $primary_fixed;
+    }
+}
+
+.clock {
+    @include widget;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    min-height: 50px;
+    margin-top: 10px;
+    background-color: $surface_container;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.batbox {
+    @include widget;
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    min-height: 60px;
+    margin-top: 10px;
+    background-color: $surface_container;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.batbar {
+  trough {
+    margin-top: 10px;
+    min-width: 10px;
+    min-height: 1px;
+    block {
+      border-radius: $rounding;
+      &.empty {
+        background-color: $surface_container_highest;
+      }
+      &.full {
+        background-color: $error;
+      }
+    }
+  }
+}
+.batbar-charging {
+  trough {
+    margin-top: 10px;
+    min-width: 10px;
+    min-height: 1px;
+    block {
+      border-radius: $rounding;
+      &.empty {
+        background-color: $surface_container_highest;
+      }
+      &.full {
+        background-color: $primary;
+      }
+    }
+  }
+}
+
+.battery_icon {
+    margin-top: 5px;
+    background-color: transparent;
+    color: $on_surface;
+    font-size: 20px;
+}
+
+.workspaces {
+    @include widget;
+    padding-left: 18px;
+    padding-right: 18px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-radius: $rounding;
+    background-color: $surface_container;
+    min-height: 150px;
+}
+.workspaces_unfocused {
+    @include common;
+    background-color: $on_surface;
+    margin-top: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: $rounding;
+    &:hover {
+        background-color: $primary;
+        transition: ease-in 0.1s;
+    }
+}
+.workspaces_focused {
+    background-color: $primary;
+    margin-top: 10px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: $rounding;
+    transition: ease-in 0.1s;
+}
+
+.notification_icon {
+    background-color: transparent;
+    color: $on_tertiary;
+    font-size: 20px;
+}
+.notification_button {
+    @include button;
+    margin-top: 10px;
+    padding: 12px;
+    background-color: $tertiary;    
+    &:hover {
+        background-color: $tertiary_fixed;
+        transition: ease-in 0.3s;
+    }
+}
+
+.misc_icon {
+    background-color: transparent;
+    color: $on_secondary;
+    font-size: 20px;
+}
+.misc_button {
+    @include button;
+    margin-top: 10px;
+    padding: 12px;
+    background-color: $secondary;    
+    &:hover {
+        background-color: $secondary_fixed;
+        transition: ease-in 0.3s;
+    }
+}
+
+.controls_icon {
+    background-color: transparent;
+    color: $on_primary;
+    font-size: 20px;
+}
+.controls_button {
+    @include button;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 12px;
+    background-color: $primary;    
+    &:hover {
+        background-color: $primary_fixed;
+        transition: ease-in 0.3s;
+    }
+}

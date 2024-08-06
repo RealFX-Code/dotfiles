@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+dbus-run-session -- flatpak --socket=x11 --socket=wayland run com.valvesoftware.Steam

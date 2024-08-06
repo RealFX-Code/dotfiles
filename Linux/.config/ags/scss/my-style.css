@@ -1,0 +1,113 @@
+*:not(switch) {
+  all: unset; }
+
+.vertical_bar {
+  border-radius: 4px;
+  min-height: 1060px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin: 10px;
+  background-color: #191724;
+  color: #e0def4; }
+  .vertical_bar * {
+    font-family: "JetBrainsMono Nerd Font", sans-serif; }
+
+.clock {
+  border-radius: 4px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  min-height: 50px;
+  margin-top: 10px;
+  background-color: #1f1d2e;
+  font-size: 20px;
+  font-weight: bold; }
+  .clock * {
+    font-family: "JetBrainsMono Nerd Font", sans-serif; }
+
+.batbox {
+  border-radius: 4px;
+  padding-left: 18px;
+  padding-right: 18px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  min-width: 18px;
+  background-color: #1f1d2e; }
+  .batbox * {
+    font-family: "JetBrainsMono Nerd Font", sans-serif; }
+
+.workspaces {
+  border-radius: 4px;
+  padding-left: 18px;
+  padding-right: 18px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  background-color: #1f1d2e;
+  color: #e0def4;
+  font-size: 16px;
+  min-height: 150px; }
+  .workspaces * {
+    font-family: "JetBrainsMono Nerd Font", sans-serif; }
+
+.workspaces_unfocused {
+  background-color: #26233a;
+  margin-top: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-radius: 4px; }
+  .workspaces_unfocused * {
+    font-family: "JetBrainsMono Nerd Font", sans-serif; }
+  .workspaces_unfocused:hover {
+    background-color: #191724;
+    transition: ease-in 0.1s; }
+
+.workspaces_focused {
+  background-color: #ebbcba;
+  color: #191724;
+  margin-top: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-radius: 4px;
+  transition: ease-in 0.1s; }
+
+.empty .workspaces_unfocused {
+  background-color: #191724; }
+
+.misc_icon {
+  background-color: transparent;
+  color: #e0def4;
+  font-size: 20px; }
+
+.misc_button {
+  border-radius: 4px;
+  padding: 5px;
+  margin-top: 10px;
+  padding: 12px;
+  background-color: #191724; }
+  .misc_button * {
+    font-family: "JetBrainsMono Nerd Font", sans-serif; }
+  .misc_button:hover {
+    background-color: #26233a;
+    transition: ease-in 0.3s; }
+
+.play-pause-container {
+  border-radius: 4px;
+  border-radius: 4px;
+  padding: 5px;
+  min-height: 50px;
+  margin-top: 10px;
+  background-color: #1f1d2e;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 12px;
+  background-color: #191724; }
+  .play-pause-container * {
+    font-family: "JetBrainsMono Nerd Font", sans-serif; }
+  .play-pause-container * {
+    font-family: "JetBrainsMono Nerd Font", sans-serif; }
+  .play-pause-container:hover {
+    background-color: #26233a;
+    transition: ease-in 0.3s; }

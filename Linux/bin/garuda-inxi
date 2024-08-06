@@ -1,0 +1,88 @@
+#!/bin/bash
+
+if [ -t 1 ] ; then
+  c_134=$'\033[1;34m'
+  c_131=$'\033[1;31m'
+  c_off=$'\033[0m'
+else
+  c0="c0"
+fi
+
+detect_dual_boot() {
+  if [[ $EUID -eq 0 ]] && [[ -x /usr/bin/os-prober ]]; then
+    local OSPROBER_OUT="$(os-prober)" || { DUALBOOT="Os-prober error"; exit; }
+    echo $OSPROBER_OUT | grep -q "Windows Boot Manager" &> /dev/null && DUALBOOT="Yes" || DUALBOOT="No/Undetected"
+  elif [[ -x /usr/bin/efibootmgr ]] && [ -d /boot/efi ]; then
+    local EFIBOOTMGR_OUT="$(efibootmgr)" || { DUALBOOT="Efibootmgr error"; exit; }
+    echo $EFIBOOTMGR_OUT | grep -q "Windows Boot Manager" &> /dev/null && DUALBOOT="Probably (Run as root to verify)" || DUALBOOT="No/Undetected"
+  elif [[ -x /usr/bin/os-prober ]]; then
+    DUALBOOT="<superuser required>"
+  else
+    DUALBOOT="No detection tool installed"
+  fi
+}
+
+detect_snapshots() {
+  if [ -d /.snapshots ] || pacman -Qq snapper-support &> /dev/null; then
+     printf "snapper "
+  elif [ -d /run/timeshift ] || pacman -Qq timeshift-support &> /dev/null; then
+     printf "timeshift "
+  elif pacman -Qq snapper &> /dev/null; then
+     printf "snapper(custom) "
+  elif pacman -Qq timeshift &> /dev/null; then
+     printf "timeshift(custom) "
+  fi
+}
+
+generate_relevant_software() {
+  local RELEVANT=()
+  local packages
+  packages="$(pacman -Qq garuda-dracut-support mkinitcpio dracut nvidia-dkms grub-customizer 2> /dev/null | xargs || true)"
+
+  systemctl is-enabled tlp &> /dev/null && RELEVANT+=("tlp")
+  systemctl is-active NetworkManager &> /dev/null && RELEVANT+=("NetworkManager")
+  systemctl is-active connman &> /dev/null && RELEVANT+=("connman")
+
+  if [[ "$packages" =~ (^| )garuda-dracut-support($| ) ]]; then
+    RELEVANT+=("dracut")
+  elif [[ "$packages" =~ (^| )dracut($| ) ]]; then
+    RELEVANT+=("dracut(custom)")
+  fi
+  [[ "$packages" =~ (^| )mkinitcpio($| ) ]] && RELEVANT+=("mkinitcpio")
+  [[ "$packages" =~ (^| )nvidia-dkms($| ) ]] && RELEVANT+=("nvidia-dkms")
+  [[ "$packages" =~ (^| )grub-customizer($| ) ]] && RELEVANT+=("grub-customizer")
+
+  detect_snapshots
+
+  local RELEVANT_SOFTWARE="${RELEVANT[*]}"
+  [ -z "$RELEVANT_SOFTWARE" ] && RELEVANT_SOFTWARE="None"
+  echo "$RELEVANT_SOFTWARE"
+}
+
+generate_system_update() {
+  local last_update
+  last_update="$(date -r /var/lib/garuda/last_update +%s 2> /dev/null)" || { echo "Unknown/Never"; return; }
+  local reboot=""
+  if [ "$last_update" -gt "$(date -r /proc +%s)" ]; then
+    reboot=" ${c_131}↻${c_off}"
+  fi
+  echo -e "$(date -d"@$last_update" +%F)${reboot}"
+}
+
+inxi -Faz${c0} --zv
+
+#echo -e "${c_134}Garuda ($(pacman -Q garuda-common-settings | awk '{print $2}')):${c_off}"
+#install_date="$(head -n1 /var/log/pacman.log | cut -d " " -f1 | cut -c 2-11)"
+#echo -e "${c_134}  System install date:${c_off}     ${install_date}"
+echo -e "${c_134}  Last full system update:${c_off} $(generate_system_update)"
+echo -e "${c_134}  Is partially upgraded:  ${c_off} $([ -e /var/lib/garuda/partial_upgrade ] && echo Yes || echo No)"
+echo -e "${c_134}  Relevant software:      ${c_off} $(generate_relevant_software)"
+detect_dual_boot &> /dev/null
+echo -e "${c_134}  Windows dual boot:      ${c_off} ${DUALBOOT}"
+echo -e "${c_134}  Failed units:           ${c_off} $(systemctl list-units --failed --full --all --plain --no-legend | awk '{printf("%s ",$1)}')"
+if [ "$1" == "funstuff" ]; then
+  update_count="$(paclog --grep="starting full system upgrade" | wc -l)"
+echo -e "${c_134}  Total system updates:   ${c_off} ${update_count}"
+echo -e "${c_134}  --> Updates per week:   ${c_off} $(( ${update_count}/(($(date +%s) - $(date --date="$install_date" +%s) )/(60*60*24*7)) ))"
+fi
+

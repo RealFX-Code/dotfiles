@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-
-sudo xbps-install -Suy
-pipx upgrade-all

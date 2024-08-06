@@ -1,0 +1,57 @@
+#!/usr/bin/env bash
+
+if [ -f /etc/os-release ]; then
+    . /etc/os-release
+    OS=$NAME
+    VER=$VERSION_ID
+elif type lsb_release >/dev/null 2>&1; then
+    OS=$(lsb_release -si)
+    VER=$(lsb_release -sr)
+elif [ -f /etc/lsb-release ]; then
+    . /etc/lsb-release
+    OS=$DISTRIB_ID
+    VER=$DISTRIB_RELEASE
+elif [ -f /etc/debian_version ]; then
+    OS=Debian
+    VER=$(cat /etc/debian_version)
+elif [ -f /etc/SuSe-release ]; then
+    ...
+elif [ -f /etc/redhat-release ]; then
+    ...
+else
+    # Fallback to uname
+    OS=$(uname -s)
+    VER=$(uname -r)
+fi
+
+echo "You're on $OS."
+
+case $OS in
+
+    Arch | EndeavourOS | Artix)
+      echo "Performing a pacman/paru/yay-based update."
+      sudo pacman -Syyuu
+      if ! command -v paru &> /dev/null
+      then
+        yay
+	exit
+      fi
+      # If yay isn't your AUR manager, update with paru instead.
+      paru
+
+      # If you for some ungodly reason don't have an AUR helper,
+      # A) what are you doing
+      # B) you're probably smart enough to update your system without this script.
+      ;;
+    Gentoo | Funtoo)
+      echo "Performing a portage-based update."
+      sudo emaint --auto sync
+      sudo emerge -avuDN @world
+      ;;
+
+    *)
+      echo "Your OS isn't supported."
+      ;;
+
+esac
+

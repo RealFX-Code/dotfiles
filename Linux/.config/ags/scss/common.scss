@@ -1,0 +1,21 @@
+
+*:not(switch) {
+    all: unset;
+}
+
+@mixin common{
+    * {
+        font-family: "JetBrainsMono Nerd Font", sans-serif;
+    }
+}
+
+@mixin widget{
+    @include common;
+    border-radius:$rounding;
+}
+
+@mixin button {
+    @include common;
+    border-radius: $rounding;
+    padding: 5px;
+}
