@@ -9,3 +9,4 @@ print_command=true
 insensitive=true
 prompt=
 columns=2
+style=/home/leah/.config/wofi/src/frappe/style.css
