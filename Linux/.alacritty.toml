@@ -1,0 +1,6 @@
+
+[window]
+padding = { x = 16, y = 16 }
+
+[font]
+normal = { family = "Iosevka Nerd Font" }
