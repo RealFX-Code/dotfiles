@@ -1,0 +1,48 @@
+
+#
+# Display configuration
+#
+
+output HDMI-A-1 resolution 1920x1200@60Hz position 0,0
+
+output DP-1 resolution 1920x1080@240Hz position 1920,0
+
+output DP-2 resolution 2560x1440@59Hz position 3840,0
+
+#
+# Visuals
+#
+
+output * bg /home/leah/Pictures/wallhaven-rr8681.jpg fill
+
+gaps inner 5
+gaps outer 10
+
+default_border pixel 2px
+default_floating_border pixel 2px
+
+blur enable
+blur_radius 1
+
+corner_radius 2
+
+shadows enable
+shadow_blur_radius 20
+shadow_offset 0 0
+
+# target                 title     bg    text   indicator  border
+client.focused           $rose     $base $text  $rose      $rose
+client.focused_inactive  $text     $base $text  $subtle    $surface
+client.unfocused         $text     $base $text  $overlay   $overlay
+client.urgent            $text     $base $text  $love      $love
+client.placeholder       $base     $base $text  $overlay   $overlay
+client.background        $base
+
+set $gnome-schema org.gnome.desktop.interface
+exec_always {
+    gsettings set $gnome-schema gtk-theme 'rose-pine-gtk'
+    gsettings set $gnome-schema icon-theme 'rose-pine-icons'
+    gsettings set $gnome-schema cursor-theme 'capitaine-cursors'
+    gsettings set $gnome-schema font-name 'IosevkaTerm Nerd Font Mono 12'
+}
+

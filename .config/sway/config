@@ -1,0 +1,9 @@
+
+# Include system-wide sway configuration first
+
+include /etc/sway/config.d/*
+
+# Include variables before rest
+include config.d/variables
+
+include config.d/*
