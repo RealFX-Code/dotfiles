@@ -1,3 +1,6 @@
 
+exec waybar&
+exec gentoo-pipewire-launcher restart &
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 exec --no-startup-id mako&
 # Gsettings in Visuals

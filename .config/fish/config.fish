@@ -5,11 +5,15 @@ source ~/.config/fish/conf.d/done.fish
 ## Run fastfetch as welcome message
 function fish_greeting
   hyfetch -b fastfetch
+  echo
+  #df -h /{,boot,/var{,/log,/db/repos,/cache}}
+  df -h /{,boot,home/leah/aosp1}
+  echo
 end
 
 # Format man pages
-set -x MANROFFOPT "-c"
-set -x MANPAGER "sh -c 'col -bx | bat -l man -p'"
+# set -x MANROFFOPT "-c"
+# set -x MANPAGER "sh -c 'col -bx | bat -l man -p'"
 
 # Set settings for https://github.com/franciscolourenco/done
 set -U __done_min_cmd_duration 10000
@@ -20,9 +24,6 @@ set -U __done_notification_urgency_level low
 if test -f ~/.fish_profile
   source ~/.fish_profile
 end
-
-# Append common directories for executable files to $PATH
-fish_add_path ~/.local/bin ~/.cargo/bin ~/Applications/depot_tools
 
 ## Functions
 # Functions needed for !! and !$ https://github.com/oh-my-fish/plugin-bang-bang
@@ -74,6 +75,8 @@ function copy
     end
 end
 
+alias ls='eza --color=always --group-directories-first --icons -alg'
+
 # Common use
 alias wget='wget -c '
 alias ..='cd ..'
@@ -82,5 +85,26 @@ alias ....='cd ../../..'
 alias .....='cd ../../../..'
 alias ......='cd ../../../../..'
 
-# Get the error messages from journalctl
-alias jctl="journalctl -p 3 -xb"
+#starship init fish | source
+
+function fish_prompt --description 'Informative prompt'
+    #Save the return status of the previous command
+    set -l last_pipestatus $pipestatus
+    set -lx __fish_last_status $status # Export for __fish_print_pipestatus.
+
+    if functions -q fish_is_root_user; and fish_is_root_user
+        printf '%s@%s %s%s%s# ' $USER (prompt_hostname) (set -q fish_color_cwd_root
+                                                         and set_color $fish_color_cwd_root
+                                                         or set_color $fish_color_cwd) \
+            (prompt_pwd) (set_color normal)
+    else
+        set -l status_color (set_color $fish_color_status)
+        set -l statusb_color (set_color --bold $fish_color_status)
+        set -l pipestatus_string (__fish_print_pipestatus "[" "]" "|" "$status_color" "$statusb_color" $last_pipestatus)
+
+        printf '[%s] %s%s@%s %s%s %s%s%s \n> ' (date "+%H:%M:%S") (set_color brblue) \
+            $USER (prompt_hostname) (set_color $fish_color_cwd) $PWD $pipestatus_string \
+            (set_color normal)
+    end
+end
+

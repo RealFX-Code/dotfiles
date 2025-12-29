@@ -8,8 +8,8 @@ set $right l
 set $term foot
 set $menu wofi --show drun
 
-set $browser  floorp
-set $discord  vesktop
+set $browser  floorp-bin
+set $discord  vesktop-bin
 set $explorer thunar
 
 # Rose Pine
