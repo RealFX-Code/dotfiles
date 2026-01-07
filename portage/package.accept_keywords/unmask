@@ -1,0 +1,38 @@
+app-mobilephone/odin4-bin ~amd64
+www-client/floorp-bin ~amd64
+net-im/vesktop-bin ~amd64
+
+# SwayFX
+gui-wm/swayfx ~amd64
+gui-libs/scenefx ~amd64
+gui-libs/xdg-desktop-portal-wlr **
+
+# Beeper
+net-im/beeper ~amd64
+
+# Steam
+*/*::steam-overlay
+games-util/game-device-udev-rules
+sys-libs/libudev-compat
+
+# Prismlauncher
+games-action/prismlauncher **
+games-util/gamemode ~amd64
+games-util/mangohud::parona-overlay ~amd64
+media-libs/imgui ~amd64
+media-libs/implot ~amd64
+
+# Lutris
+games-util/lutris ~amd64
+dev-python/pypresence ~amd64
+dev-python/moddb ~amd64
+
+# Twinkle SIP
+net-voip/twinkle ~amd64
+dev-cpp/commoncpp2 ~amd64
+dev-libs/ccrtp ~amd64
+dev-libs/ucommon ** # GNU's GIT server is broken
+
+# WoeUSB-ng
+sys-boot/woeusb-ng ~amd64
+

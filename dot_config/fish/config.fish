@@ -7,7 +7,7 @@ function fish_greeting
   hyfetch -b fastfetch
   echo
   #df -h /{,boot,/var{,/log,/db/repos,/cache}}
-  df -h /{,boot,home/leah/aosp1}
+  df -h /{,boot,home/leah/aosp1,/home/leah/bigdisk}
   echo
 end
 
@@ -74,6 +74,8 @@ function copy
         command cp $argv
     end
 end
+
+set -gx _JAVA_AWT_WM_NONREPARENTING 1
 
 alias ls='eza --color=always --group-directories-first --icons -alg'
 

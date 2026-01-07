@@ -1,0 +1,42 @@
+*/* CPU_FLAGS_X86: aes avx avx2 avx512_bf16 avx512_bitalg avx512_vbmi2 avx512_vnni avx512_vpopcntdq avx512bw avx512cd avx512dq avx512f avx512ifma avx512vbmi avx512vl bmi1 bmi2 f16c fma3 mmx mmxext pclmul popcnt rdrand sha sse sse2 sse3 sse4_1 sse4_2 sse4a ssse3 vpclmulqdq
+*/* VIDEO_CARDS: -* amdgpu radeonsi radeon
+*/* GRUB_PLATFORMS: efi-64
+*/* QEMU_SOFTMMU_TARGETS: *
+
+# System stuff
+sys-kernel/installkernel ugrd grub
+sys-fs/lvm2 lvm
+
+#
+# Welcome to Userland!
+#
+
+# Desktop environment
+gui-wm/swayfx tray wallpapers
+gui-apps/waybar experimental network pipewire tray wifi
+gui-apps/swaybg gdk-pixbuf
+
+# Pipewire
+media-video/pipewire sound-server
+
+# Needed for net-im/telegram-desktop
+media-video/ffmpeg vpx opus
+sys-libs/zlib minizip
+
+# Thunar stuff
+dev-libs/libdbusmenu gtk3
+gnome-base/gvfs mtp samba
+xfce-base/tumbler ffmpeg
+
+# QEMU
+app-emulation/qemu pipewire sdl-image spice ssh usbredir virgl
+
+# Remmina
+net-misc/remmina rdp vnc
+
+# Android stuffs
+dev-util/android-tools python
+
+# WoeUSB
+sys-boot/woeusb-ng -gui
+
